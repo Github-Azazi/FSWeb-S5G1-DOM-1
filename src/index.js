@@ -1,5 +1,5 @@
 const siteContent = { // BU NESNEYİ DEĞİŞTİRMEYİN
-  "nav": {
+  nav: {
     "nav-item-1": "Servisler",
     "nav-item-2": "Ürünler",
     "nav-item-3": "Vizyon",
@@ -43,3 +43,73 @@ console.log('Proje açıldı!')
 
 
 /* Kodlar Buradan aşağıya */
+
+/* let linkText =[
+  "Servisler",
+  "Ürünler",
+  "Vizyon",
+  "Özellikler",
+  "Hakkımızda",
+  "İletişim",
+];
+console.log("Object.values(siteContent.nav):", Object.values(siteContent.nav));*/
+
+let navLinks = document.querySelectorAll("nav a");
+console.log("navLinks: ",navLinks);
+
+const linkText = Object.values(siteContent.nav);
+
+navLinks.forEach((link, index) => {
+  link.className = "italic";
+  link.textContent = siteContent.nav[`nav-item-${index + 1}`];
+});
+
+let logoElement = document.getElementById("logo-img");
+logoElement.setAttribute("src", siteContent["images"]["logo-img"]);
+
+let h1Element = document.querySelector(".cta-text h1")
+h1Element.textContent = siteContent.cta.h1;
+
+let buttonElement = document.querySelector(".cta-text button");
+buttonElement.textContent = siteContent.cta.button;
+
+const img2 =document.getElementById("cta-img");
+img2.setAttribute("src",siteContent.images["cta-img"]);
+
+const h4List = document.querySelectorAll(".text-content h4");
+const pList = document.querySelectorAll(".text-content p");
+
+h4List[0].textContent = siteContent["ana-içerik"]["özellikler-h4"];
+pList[0].textContent= siteContent["ana-içerik"]["özellikler-içerik"];
+
+h4List[1].textContent = siteContent["ana-içerik"]["hakkımızda-h4"];
+pList[1].textContent= siteContent["ana-içerik"]["hakkımızda-içerik"];
+
+h4List[2].textContent = siteContent["ana-içerik"]["servisler-h4"];
+pList[2].textContent= siteContent["ana-içerik"]["servisler-içeriği"];
+
+h4List[3].textContent = siteContent["ana-içerik"]["ürünler-h4"];
+pList[3].textContent= siteContent["ana-içerik"]["ürünler-içeriği"];
+
+h4List[4].textContent = siteContent["ana-içerik"]["vizyon-h4"];
+pList[4].textContent= siteContent["ana-içerik"]["vizyon-içeriği"];
+
+const img3 =document.getElementById("middle-img");
+img3.setAttribute("src",siteContent.images["accent-img"]);
+
+const contactH4 = document.querySelector(".contact h4");
+contactH4.textContent = siteContent.iletisim["iletişim-h4"];
+
+const contactPList = document.querySelectorAll(".contact p");
+
+contactPList[0].textContent = siteContent.iletisim.adres
+contactPList[1].textContent = siteContent.iletisim.telefon
+contactPList[2].textContent = siteContent.iletisim.email
+
+const footerA = document.querySelector("footer a");
+footerA.textContent = siteContent.footer.copyright
+footerA.className = "bold" ;
+/*
+footerA.classList.add("bold");
+footerA.setAttribute("class","bold");
+*/
